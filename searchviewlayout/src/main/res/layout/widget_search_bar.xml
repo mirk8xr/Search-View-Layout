@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:cardCornerRadius="2dp"
-        app:cardElevation="2dp" >
+        app:cardElevation="0dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 android:src="@drawable/ic_search"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:importantForAccessibility="no"
-                android:tint="@color/searchbox_icon_tint" />
+                android:tint="@color/searchbox_icon_tint_2" />
 
             <LinearLayout
                 android:id="@+id/search_box_start_search"
