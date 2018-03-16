@@ -75,6 +75,8 @@ public class SearchViewLayout extends FrameLayout {
     private int mCollapsedHeight;
     private TextView mCollapsedHintView;
 
+    private boolean searchEnable = true;
+
     /***
      * Interface for listening to animation start and finish.
      * expanding and expanded tell the current state of animation.
@@ -122,6 +124,14 @@ public class SearchViewLayout extends FrameLayout {
         ANIMATION_DURATION = context.getResources().getInteger(R.integer.animation_duration);
     }
 
+
+    /**
+     * Enable/disable search widget
+     */
+    public void setSearchEnable(boolean enable) {
+        searchEnable = enable;
+    }
+
     @Override
     protected void onFinishInflate() {
         mCollapsed = (ViewGroup) findViewById(R.id.search_box_collapsed);
@@ -152,10 +162,12 @@ public class SearchViewLayout extends FrameLayout {
         mSearchEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Utils.showInputMethod(v);
-                } else {
-                    Utils.hideInputMethod(v);
+                if (searchEnable) {
+                    if (hasFocus) {
+                        Utils.showInputMethod(v);
+                    } else {
+                        Utils.hideInputMethod(v);
+                    }
                 }
             }
         });
